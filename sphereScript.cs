@@ -9,6 +9,7 @@ public class sphereScript : MonoBehaviour {
 	public float forcex;
 	[Range(0,2000)]
 	public float forcey;
+	public bool Shoot;
 
 	Rigidbody rb;
 	public float x=0f,y=0f;
@@ -28,27 +29,31 @@ public class sphereScript : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		RotateMe ();
+		if(Shoot)
+			RotateMe ();
 	}
 	void OnCollisionStay(Collision col)
 	{
-		if (col.gameObject.tag == "Accelerate")
+		if (Shoot)
 		{
-			forcey += 0.05f;
-			y += 0.05f;
-			AccelerateMe ();
-		}
-		else
-		if (col.gameObject.tag == "Rotate")
-		{
-			forcex +=1f;
-			x += 0.03f;
-			RotateMe ();
-		}
-		else
-		{
-			x -= 0.05f;
-			y -= 0.05f;
+			if (col.gameObject.tag == "Accelerate")
+			{
+				forcey += 0.05f;
+				y += 0.05f;
+				AccelerateMe ();
+			}
+			else
+			if (col.gameObject.tag == "Rotate")
+			{
+				forcex += 1f;
+				x += 0.03f;
+				RotateMe ();
+			}
+			else
+			{
+				x -= 0.05f;
+				y -= 0.05f;
+			}
 		}
 	}
 	void AccelerateMe()
