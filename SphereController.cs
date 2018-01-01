@@ -12,6 +12,7 @@ public class SphereController : MonoBehaviour {
 	public float moveTime;
 	public float moveSpeed;
 	public bool borderReached;
+	public Vector3 direction;
 	// Use this for initialization
 	void Start () 
 	{
@@ -23,8 +24,10 @@ public class SphereController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		
 		if (Input.GetKeyDown (KeyCode.Delete))
 		{
+			child.GetComponent <Transform> ().rotation = Quaternion.Euler (direction);
 			child.GetComponent <Rigidbody> ().useGravity = true;
 			child.GetComponent<sphereScript> ().Shoot = true;
 			child.transform.SetParent (null);

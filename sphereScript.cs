@@ -14,9 +14,13 @@ public class sphereScript : MonoBehaviour {
 	Rigidbody rb;
 	public float x=0f,y=0f;
 
+	public Vector3 direction;
+	bool setDirection;
+
 	// Use this for initialization
 	void Start () 
 	{
+		setDirection = true;
 		rb = GetComponent<Rigidbody> ();
 	}
 	
@@ -31,9 +35,12 @@ public class sphereScript : MonoBehaviour {
 	{
 		if (Shoot)
 		{
-			RotateMe ();
+			if (setDirection)
+			{
+				setDirection = false;
+				direction = transform.forward;
+			}
 		}
-
 	}
 	void OnCollisionStay(Collision col)
 	{
@@ -42,7 +49,6 @@ public class sphereScript : MonoBehaviour {
 			if (col.gameObject.tag == "Accelerate")
 			{
 				forcey += 0.05f;
-				y += 0.05f;
 				AccelerateMe ();
 			}
 			else
@@ -62,11 +68,11 @@ public class sphereScript : MonoBehaviour {
 	void AccelerateMe()
 	{
 		//rb.AddForce ();	
-		rb.velocity=new Vector3(y,0f,x)*Time.deltaTime*-forcey;
+		rb.velocity	= direction*Time.deltaTime*forcey;
 	}
 	void RotateMe()
 	{
-		rb.velocity=new Vector3(y,0f,x)*Time.deltaTime*-forcey;
+		rb.velocity=direction*Time.deltaTime*forcey;
 		rb.AddTorque (new Vector3(y,0f,x)*Time.deltaTime*forcex);	
 	}
 }
