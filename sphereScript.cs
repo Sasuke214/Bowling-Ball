@@ -29,8 +29,11 @@ public class sphereScript : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		if(Shoot)
+		if (Shoot)
+		{
 			RotateMe ();
+		}
+
 	}
 	void OnCollisionStay(Collision col)
 	{

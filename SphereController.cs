@@ -23,6 +23,12 @@ public class SphereController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if (Input.GetKeyDown (KeyCode.Delete))
+		{
+			child.GetComponent <Rigidbody> ().useGravity = true;
+			child.GetComponent<sphereScript> ().Shoot = true;
+			child.transform.SetParent (null);
+		}
 		if (child.transform.position.z <= -0.35f || child.transform.position.z >= 0.35f)
 		{
 			borderReached = true;
