@@ -454,13 +454,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611184209}
-  m_LocalRotation: {x: -0, y: -0.673919, z: -0, w: 0.73880523}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.15054598, y: -0.051, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1751353554}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -84.741005, z: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1036131480
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1751353554}
   - component: {fileID: 1751353555}
+  - component: {fileID: 1751353556}
   m_Layer: 0
   m_Name: BallsParent
   m_TagString: Untagged
@@ -569,8 +570,8 @@ Transform:
   m_LocalPosition: {x: 0.576646, y: 1.6314019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 611184210}
   - {fileID: 1868931252}
+  - {fileID: 611184210}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -593,6 +594,24 @@ MonoBehaviour:
   moveSpeed: 0.5
   borderReached: 0
   direction: {x: 0, y: -84.741, z: 0}
+--- !u!114 &1751353556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1751353553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323ab4eb72583104fbc06e46187b81a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickedPos: {x: 0, y: 0, z: 0}
+  StartPoint: {x: 0, y: 0, z: 0}
+  EndPoint: {x: 0, y: 0, z: 0}
+  mobile: 0
+  ForceToHit: 0
+  Force: {x: 0, y: 0, z: 10}
+  angle: 0
 --- !u!1 &1868931246
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +671,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1868931246}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -707,7 +726,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1751353554}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051069162
 GameObject:
@@ -721,6 +740,7 @@ GameObject:
   - component: {fileID: 2051069165}
   - component: {fileID: 2051069164}
   - component: {fileID: 2051069163}
+  - component: {fileID: 2051069168}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -798,3 +818,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 26.624, y: -90.309006, z: 0}
+--- !u!114 &2051069168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051069162}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cbb0feb6f938243871f2cba24e0bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 0
+  sx: 0.4
+  sy: 0.4
+  ex: 0.4
+  ey: 0.8

@@ -13,18 +13,20 @@ public class SphereController : MonoBehaviour {
 	public float moveSpeed;
 	public bool borderReached;
 	public Vector3 direction;
+
 	// Use this for initialization
 	void Start () 
 	{
 		child = GameObject.FindGameObjectWithTag ("Ball");
 		initialPos = child.transform.position;
-	
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (Input.GetMouseButtonDown (0))
+		{
+		}
 		if (Input.GetKeyDown (KeyCode.Delete))
 		{
 			child.GetComponent <Transform> ().rotation = Quaternion.Euler (direction);
@@ -44,6 +46,7 @@ public class SphereController : MonoBehaviour {
 		movex = Input.GetAxis ("Horizontal");
 		movey = Input.GetAxis ("Vertical");
 	}
+
 	void FixedUpdate()
 	{
 		if (movex != 0 && !borderReached)
